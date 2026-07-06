@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+env/
+.env
+
+# Database
+*.db
+*.sqlite
+chat.db
+
+# Instance folder
+instance/
+
+# Testing
+.coverage
+htmlcov/
+
+# Logs
+*.log
+
+# OS
+.DS_Store

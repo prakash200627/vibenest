@@ -1,0 +1,33 @@
+# Version control ignore rules for VibeNest
+
+# Virtual environments & packages
+.venv/
+venv/
+backend/.venv/
+backend/venv/
+frontend/node_modules/
+
+# Environment files
+.env
+.env.local
+backend/.env
+frontend/.env
+
+# Build outputs
+frontend/dist/
+frontend/build/
+
+# Databases
+*.db
+*.sqlite
+backend/*.db
+backend/chat.db
+backend/instance/
+
+# Logs
+*.log
+backend/uvicorn.log
+
+# System files
+.DS_Store
+Thumbs.db
