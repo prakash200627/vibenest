@@ -20,8 +20,6 @@ services:
 
   backend:
     image: bhavaniprakash/vibenest-backend:latest
-    build:
-      context: ./backend
 
     container_name: vibenest-backend
 
@@ -53,8 +51,6 @@ services:
 
   frontend:
     image: bhavaniprakash/vibenest-frontend:latest
-    build:
-      context: ./frontend
 
     container_name: vibenest-frontend
 
@@ -66,6 +62,7 @@ services:
 
     ports:
       - "3000:80"
+    
 
 volumes:
   postgres_data:
