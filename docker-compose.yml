@@ -31,7 +31,8 @@ services:
         condition: service_healthy
 
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/vibenest
+      DATABASE_URL: ${DATABASE_URL}
+      SECRET_KEY: ${SECRET_KEY}
 
     ports:
       - "8000:8000"
