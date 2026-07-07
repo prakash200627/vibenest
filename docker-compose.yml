@@ -12,11 +12,13 @@ services:
 
     ports:
       - "80:80"
+      - "443:443"
 
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-      
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+
   db:
     image: postgres:15
     container_name: vibenest-db
