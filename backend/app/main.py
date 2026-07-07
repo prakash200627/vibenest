@@ -10,6 +10,7 @@ from app.db.session import engine, get_db
 from app.db.base import Base
 from app.core.config import settings
 from app.utils.logging import logger
+from prometheus_fastapi_instrumentator import Instrumentator
 
 # Routers
 from app.api.routes import auth, user, chat, post
@@ -83,6 +84,8 @@ app.include_router(auth.router, prefix="/api/v1/auth", tags=["auth"])
 app.include_router(user.router, prefix="/api/v1/users", tags=["users"])
 app.include_router(chat.router, prefix="/api/v1/chat", tags=["chat"])
 app.include_router(post.router, prefix="/api/v1/posts", tags=["posts"])
+
+Instrumentator().instrument(app).expose(app)
 
 @app.get("/health")
 def health_check(db: Session = Depends(get_db)):
