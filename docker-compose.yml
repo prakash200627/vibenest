@@ -27,8 +27,20 @@ services:
       - "9090:9090"
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
     depends_on:
       - backend
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: vibenest-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
 
   db:
     image: postgres:15
@@ -97,3 +109,5 @@ services:
 
 volumes:
   postgres_data:
+  prometheus_data:
+  grafana_data:
