@@ -44,10 +44,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull bhavaniprakash/vibenest-backend:latest
-            docker pull bhavaniprakash/vibenest-frontend:latest
-
             cd ~/vibenest
 
-            docker compose down
-            docker compose up -d
+            docker compose pull
+            docker compose up -d --force-recreate
